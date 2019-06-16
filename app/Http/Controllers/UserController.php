@@ -9,8 +9,8 @@ class UserController extends Controller
 	public function getIndex() {
 		return view('user.indexuser')->with('usuarios', User::all());
 	}
-	public function getWinner() {
-		return view('game.game')->with('usuarios2', User::all());
+	public function getWinner($id) {
+		return view('game.game')->with('usuarios2', User::findOrFail($id));
 	}
 	public function getUser() {
 		return view('welcome')->with('usuarios', User::all());
