@@ -4,6 +4,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Auth;
+use App\User;
+use DB;
 class LoginController extends Controller
 {
     /*
@@ -35,5 +37,24 @@ class LoginController extends Controller
 
     public function setPasswordAttribute($password) {
         $this->attributes['password'] = \Hash::make($password);
+    }
+
+
+    public function login(Request $req) {
+    $user = User::all();
+    $user->email = $req->input('email');
+    $user->password = $req->input('password');    
+        if ($checkEmail = DB::table('users')->select('email')->where('email', $user->email)->first()) {
+        } else {
+            echo "Correo incorrecto";
+            return view('auth.login');
+        }
+
+        if ($checkPass = DB::table('users')->select('password')->where('password', $user->password)->first()) {         
+        } else {
+            echo "Contraseña incorrecta";
+            return view('auth.login');
+        }
+    return view('welcome')->with('usuarios', User::all());
     }
 }
