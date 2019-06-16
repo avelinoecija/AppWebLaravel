@@ -12,10 +12,11 @@ use Illuminate\Support\Facades\Input;
 	});
 	//Route::get('/', 'PagesController@index');
 	Route::get('/', 'UserController@getUser');
-	Route::get('/game/game/{id}', 'UserController@getUser');
+	//Route::get('/game/game/{idrespuesta}', 'UserController@getUser');
 
 
-// Route::get('/login', 'LoginController@showLoginForm');
+ Route::post('/login', 'LoginController@login')->name('login');
+ Route::get('/login', 'LoginController@correo');
 // Route::post('/login', 'LoginController@login');
 // Route::post('/logout', 'LoginController@logout');
 // Route::get('/register', 'RegisterController@showRegistrationForm');
@@ -68,23 +69,24 @@ use Illuminate\Support\Facades\Input;
 // JUEGO //
 
 
-	Route::get('/game/game{id}', 'GameController@getWinner');
-	Route::get('/game/game{id}', 'GameController@getQuestions');
-	Route::get('/game/final', 'GameController@succeed');
-	Route::put('/game/final2', 'GameController@addPoints');
-	Route::put('/game/final2', 'GameController@addNivel');
+	// Route::get('/game/game{idrespuesta}', 'GameController@getWinner');
+	Route::get('/game/game{idrespuesta}', 'GameController@getQuestions');
+	Route::get('/game/final{idrespuesta}', 'GameController@succeed');
+	// Route::put('/game/final{idrespuesta}', 'GameController@putEdit');
+	Route::post('/game/final{idrespuesta}', 'GameController@putEdit');
 	Route::get('/game/fail', 'GameController@fail');
-	Route::get('/game/final2{id}', 'GameController@succeed2');
-
-	Route::resource('cart', 'CartController');
-	Route::post('proceedToCheckout/{id}', 'CartController@proceedToCheckout');
-	Route::delete('emptyCart', 'CartController@emptyCart');
-	Route::get('paypal', 'CartController@paypal');
-	Route::get('game.final', 'GameController@addPoints');
+	Route::get('/game/final2/{idrespuesta}', 'GameController@succeed2');
+	Route::get('/game/select{id}', 'GameController@getMaterias');
+	Route::get('/game/test{idasignatura}', 'GameController@getTests');
+	// Route::resource('cart', 'CartController');
+	// Route::post('proceedToCheckout/{id}', 'CartController@proceedToCheckout');
+	// Route::delete('emptyCart', 'CartController@emptyCart');
+	// Route::get('paypal', 'CartController@paypal');
+	// Route::get('game.final', 'GameController@addPoints');
 //});
 
 
-//Auth::routes();
+Auth::routes();
 
 //Route::get('/home', 'HomeController@index')->name('home');
 
