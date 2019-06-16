@@ -39,7 +39,7 @@
           <div class="header-content mx-auto">
             <h1 class="mb-5">¡Un juego que pondrá a prueba tus conocimientos!</h1>
             @foreach( $usuarios as $key => $usuario )
-            <a href="{{ url('/game/game' . $usuario->id) }}" class="btn btn-outline btn-xl js-scroll-trigger">¡Pruébalo!</a>
+            <a href="{{ url('/game/select' . $usuario->id) }}" class="btn btn-outline btn-xl js-scroll-trigger">¡Pruébalo!</a>
             @endforeach
           </div>
         </div>
