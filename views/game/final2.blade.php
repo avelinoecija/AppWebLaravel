@@ -15,6 +15,8 @@
           <div class="device-container">
               <div class="device">
                 <div class="screen">
+                    <p>Nueva puntuación: {{$puntuacion->puntuacion}}</p>
+                    <p>Nuevo nivel: {{$puntuacion->nivel}}</p>
                     <img src="./../../img/icon-success.png" class="img-fluid" alt="">         
                 </div>
               @endforeach

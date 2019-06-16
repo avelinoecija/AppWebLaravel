@@ -6,7 +6,7 @@
       <div class="row h-100">
         <div class="col-lg-7 my-auto">
           <div class="header-content mx-auto">
-            <h1 class="mb-5">¡Oh! Has fallado, hay que estudiar más, sigue intentándolo...</h1>
+            <h1 class="mb-5">¡Oh! Has fallado o se te ha agotado el tiempo, hay que estudiar más, sigue intentándolo...</h1>
             <a href="{{ url('/game/game') }}" class="btn btn-outline btn-xl js-scroll-trigger">¡Vuelve a intentarlo!</a>
           </div>
         </div>
